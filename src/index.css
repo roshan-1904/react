@@ -1,0 +1,58 @@
+:root {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #0d0d0d;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Animated Starfield */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  z-index: -1;
+  opacity: 0.3;
+  animation: backgroundMove 100s linear infinite;
+}
+
+@keyframes backgroundMove {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #646cff;
+}
+
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+}

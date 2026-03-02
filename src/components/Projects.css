@@ -1,0 +1,124 @@
+.projects-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 5rem 0;
+  animation: fadeIn 1s ease-out;
+}
+
+.projects-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 10px;
+  color: #fff;
+  margin-bottom: 5rem;
+  border-bottom: 2px solid #646cff;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.project-detail-item {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  animation: slideInUp 1s ease-out both;
+}
+
+.project-detail-item:nth-child(2) { animation-delay: 0.3s; }
+.project-detail-item:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.project-image-box {
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-detail-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  filter: grayscale(30%);
+}
+
+.project-detail-item:hover .project-detail-img {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+.project-info {
+  flex: 1.2;
+}
+
+.project-detail-title {
+  font-size: 2rem;
+  color: #646cff;
+  letter-spacing: 4px;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
+}
+
+.project-detail-item:hover .project-detail-title {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(100, 108, 255, 0.8);
+}
+
+.project-detail-desc {
+  color: #aaa;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.project-read-more {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  border: 1px solid #646cff;
+  color: #646cff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
+
+.project-read-more:hover {
+  background: #646cff;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(100, 108, 255, 0.4);
+}
+
+/* Alternate layout for items */
+.project-detail-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 960px) {
+  .project-detail-item, .project-detail-item:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  .project-detail-img { height: 250px; }
+  .page-title { font-size: 2rem; letter-spacing: 5px; }
+}
