@@ -247,5 +247,14 @@ section:nth-of-type(4) { animation-delay: 1.5s; }
 
 @media (max-width: 768px) {
   .hero-content h1 { font-size: 2.5rem; letter-spacing: 10px; }
+  .hero-content h2 { font-size: 1.2rem; letter-spacing: 5px; }
   .project-grid, .blog-grid { grid-template-columns: 1fr; }
+  section { padding: 4rem 5%; }
+  .mission-video { gap: 3rem; }
+  .video-box { height: 250px; }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 { font-size: 1.8rem; letter-spacing: 5px; }
+  .btn-read-more { padding: 1rem 2rem; width: 80%; }
 }

@@ -157,4 +157,11 @@
 @media (max-width: 768px) {
   .page-title { font-size: 2rem; letter-spacing: 5px; }
   .about-container { padding: 3rem 0; }
+  .about-wrapper { gap: 3rem; }
+  .about-content p { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .page-title { font-size: 1.5rem; letter-spacing: 3px; }
+  .sidebar-box { padding: 1.5rem; }
 }

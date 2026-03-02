@@ -40,3 +40,13 @@
   color: #444;
   letter-spacing: 1px;
 }
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 5%;
+  }
+  .social-icons {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+}

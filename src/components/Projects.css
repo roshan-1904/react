@@ -122,3 +122,9 @@
   .project-detail-img { height: 250px; }
   .page-title { font-size: 2rem; letter-spacing: 5px; }
 }
+
+@media (max-width: 480px) {
+  .page-title { font-size: 1.5rem; letter-spacing: 3px; }
+  .project-detail-title { font-size: 1.5rem; }
+  .project-detail-desc { font-size: 1rem; }
+}
