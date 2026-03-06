@@ -104,6 +104,41 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* MISSION STATS - NEW FEATURE */}
+            <section className="mission-stats">
+                <div className="stats-grid">
+                    <div className="stat-item">
+                        <span className="stat-number">1500+</span>
+                        <span className="stat-label">STARS DISCOVERED</span>
+                    </div>
+                    <div className="stat-item">
+                        <span className="stat-number">42</span>
+                        <span className="stat-label">MISSIONS COMPLETED</span>
+                    </div>
+                    <div className="stat-item">
+                        <span className="stat-number">12</span>
+                        <span className="stat-label">PLANETARY BASES</span>
+                    </div>
+                    <div className="stat-item">
+                        <span className="stat-number">8.5B</span>
+                        <span className="stat-label">MILES TRAVELED</span>
+                    </div>
+                </div>
+            </section>
+
+            {/* PARTNERS SECTION - NEW CONTENT */}
+            <section className="partners-section">
+                <div className="section-title">
+                    <h3>OUR STRATEGIC PARTNERS</h3>
+                </div>
+                <div className="partners-grid">
+                    <div className="partner-logo">SPACE ALLIANCE</div>
+                    <div className="partner-logo">GALAXY CORP</div>
+                    <div className="partner-logo">NEBULA TECH</div>
+                    <div className="partner-logo">ORBITAL SYSTEMS</div>
+                </div>
+            </section>
         </div>
             )}
         </div>

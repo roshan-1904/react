@@ -239,6 +239,64 @@ section:nth-of-type(4) { animation-delay: 1.5s; }
   line-height: 1.8;
 }
 
+/* Mission Stats */
+.mission-stats {
+  background: linear-gradient(to bottom, #050505, #0b1a2e);
+  border-top: 1px solid rgba(100, 108, 255, 0.2);
+  border-bottom: 1px solid rgba(100, 108, 255, 0.2);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #00bcd4;
+  text-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: #888;
+}
+
+/* Partners */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+.partner-logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.partner-logo:hover {
+  color: #646cff;
+  border-color: #646cff;
+  background: rgba(100, 108, 255, 0.05);
+}
+
 @media (max-width: 1024px) {
   .hero-content h1 { font-size: 4rem; }
   .project-grid { grid-template-columns: repeat(2, 1fr); }
