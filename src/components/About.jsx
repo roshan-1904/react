@@ -1,10 +1,25 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import './About.css'
 
 const About = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="about-container">
-      <div className="about-wrapper">
+      {loading ? (
+        <div className="global-loader">
+          <div className="loader-spinner"></div>
+          <div className="loader-text">Loading Details...</div>
+        </div>
+      ) : (
+        <div className="about-wrapper fade-in">
         {/* MAIN CONTENT AREA */}
         <main className="about-content">
           <h1 className="page-title">ABOUT</h1>
@@ -72,6 +87,7 @@ const About = () => {
           </div>
         </aside>
       </div>
+      )}
     </div>
   )
 }

@@ -27,6 +27,7 @@ const Navbar = () => {
         <li><Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link></li>
         <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link></li>
         <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
+        <li><Link to="/admin" onClick={() => setIsOpen(false)} style={{color: '#00bcd4'}}>Admin</Link></li>
       </ul>
     </nav>
   );

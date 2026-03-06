@@ -1,21 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Blog.css';
 
 const Blog = () => {
-  const blogPosts = [
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get('/api/blogs');
+        if (response.data.length > 0) {
+          setBlogPosts(response.data);
+        } else {
+          setBlogPosts(staticBlogs);
+        }
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+        setBlogPosts(staticBlogs);
+      } finally {
+        setTimeout(() => setLoading(false), 500);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  const staticBlogs = [
     {
-      id: 1,
+      _id: 1,
       title: 'FINDING PLANET X-123',
       date: 'FEBRUARY 6, 2026',
       image: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=800&q=80',
-      description: "Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded. What’s more, they’re absolutely free! You can do a lot with them. You can modify them. You can use them to design websites for clients, so long as you agree with the Terms of Use. You can even remove all our links if you want to."
+      description: "Our website templates are created with inspiration, checked for quality and originality and meticulously sliced and coded."
     },
     {
-      id: 2,
+      _id: 2,
       title: 'NEW SATELLITE DISH',
       date: 'FEBRUARY 3, 2026',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-      description: "Looking for more templates? Just browse through all our Free Website Templates and find what you’re looking for. But if you don’t find any website template you can use, you can try our Free Web Design service and tell us all about it. Maybe you’re looking for something specific, feel free to ask for help on our Forum."
+      description: "Looking for more templates? Just browse through all our Free Website Templates and find what you’re looking for."
     }
   ];
 
@@ -27,26 +50,33 @@ const Blog = () => {
 
   return (
     <div className="blog-container">
-      <div className="blog-wrapper">
-        <h1 className="page-title">BLOG</h1>
-        
-        <div className="blog-layout">
-          {/* MAIN BLOG LIST */}
-          <main className="blog-main">
-            {blogPosts.map((post) => (
-              <article key={post.id} className="blog-post">
-                <div className="blog-post-image">
-                  <img src={post.image} alt={post.title} />
-                </div>
-                <div className="blog-post-content">
-                  <h2 className="blog-post-title">{post.title}</h2>
-                  <span className="blog-post-date">{post.date}</span>
-                  <p className="blog-post-desc">{post.description}</p>
-                  <a href="#" className="blog-read-more">READ MORE</a>
-                </div>
-              </article>
-            ))}
-          </main>
+      {loading ? (
+        <div className="global-loader">
+          <div className="loader-spinner"></div>
+          <div className="loader-text">Loading Blog...</div>
+        </div>
+      ) : (
+        <div className="blog-wrapper fade-in">
+          <h1 className="page-title">BLOG</h1>
+
+          <div className="blog-layout">
+            {/* MAIN BLOG LIST */}
+            <main className="blog-main">
+              {blogPosts.map((post) => (
+                <article key={post._id} className="blog-post">
+                  <div className="blog-post-image">
+                    <img src={post.image} alt={post.title} />
+                  </div>
+                  <div className="blog-post-content">
+                    <h2 className="blog-post-title">{post.title}</h2>
+                    <span className="blog-post-date">{post.date}</span>
+                    <p className="blog-post-desc">{post.description}</p>
+                    <a href="#" className="blog-read-more">READ MORE</a>
+                  </div>
+                </article>
+              ))}
+            </main>
+  ...
 
           {/* SIDEBAR */}
           <aside className="blog-sidebar">
@@ -86,6 +116,7 @@ const Blog = () => {
           </aside>
         </div>
       </div>
+      )}
     </div>
   );
 };

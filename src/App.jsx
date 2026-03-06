@@ -5,6 +5,7 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Blog from './components/Blog'
 import Contact from './components/Contact'  
+import Admin from './components/Admin'
 import Footer from './components/Footer'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
         <Footer />
       </div>

@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './Home.css'
 
 const Home = () => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 800);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className="home-container">
-            {/* HERO SECTION */}
-            <section className="hero">
+            {loading ? (
+                <div className="global-loader">
+                    <div className="loader-spinner"></div>
+                    <div className="loader-text">Initializing Mission...</div>
+                </div>
+            ) : (
+                <div className="fade-in">
+                    {/* HERO SECTION */}
+                    <section className="hero">
                 <div className="hero-content">
                     <h1>SOYUZ TMA-M</h1>
                     <h2>SPACECRAFT</h2>
@@ -88,6 +104,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+        </div>
+            )}
         </div>
     )
 }
